@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="title text-info">
+                {{ restaurant.name }}
+            </h1>
+        </div>
+        <br>
+        <table class="Table">
+            <thead>
+
+            <tr>
+                <th class="subtitle">name</th>
+                <th class="subtitle">price</th>
+                <th class="subtitle">description</th>
+            </tr>
+            </thead>
+            {% for i in items %}
+                <tr>
+                    <td class="p-3">
+
+                        {{ i.name }}
+
+                    </td>
+                    <td class="p-2">{{ i.price }}</td>
+                    <td class="p-2">{{ i.description }}</td>
+                </tr>
+
+            {% endfor %}
+
+        </table>
+        <br>
+    </div>
+{% endblock %}
