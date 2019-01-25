@@ -1,36 +1,36 @@
 {% extends 'base.html' %}
-
 {% block content %}
-    <div class="container">
-        <div class="jumbotron">
-            <h1 class="title text-info">
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="title text-info">
                 {{ restaurant.name }}
             </h1>
-        </div>
-        <br>
-        <table class="Table">
-            <thead>
-
+        <a href="{{url_for('newMenuItem', restaurant_id= restaurant.id)}}" class="btn btn-large btn-warning p-2 mt-2"><i class="fas fa-plus-square"> </i> Create New Menu Item</a>
+    </div>
+    <br>
+    <table class="Table text-center">
+        <thead>
             <tr>
                 <th class="subtitle">name</th>
                 <th class="subtitle">price</th>
                 <th class="subtitle">description</th>
             </tr>
-            </thead>
-            {% for i in items %}
-                <tr>
-                    <td class="p-3">
-
-                        {{ i.name }}
-
-                    </td>
-                    <td class="p-2">{{ i.price }}</td>
-                    <td class="p-2">{{ i.description }}</td>
-                </tr>
-
-            {% endfor %}
-
-        </table>
-        <br>
-    </div>
+        </thead>
+        {% for i in items %}<tr>
+            <td class="p-3">
+                {{ i.name }}
+            </td>
+            <td class="p-2">{{ i.price }}</td>
+            <td class="p-2">{{ i.description }}</td>
+            <td class="p-1">
+                <a href='{{url_for('editMenuItem', restaurant_id=restaurant.id, menu_id = i.id)}}' class="text-center"><i class="fas fa-edit "></i></a>
+            </td>
+            <td class='p-1'>
+                <a href = '{{url_for('deleteMenuItem', restaurant_id = restaurant.id, menu_id = i.id ) }}'><i class="fas fa-trash-alt"></i></a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+</div>
 {% endblock %}
