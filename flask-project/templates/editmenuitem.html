@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <div>
+        <h1 class="title"> Edit Menu Item</h1>
+    </div>
+    <div class="py-2 mt-2">
+        <div class="form-group">
+            <form action="{{url_for('editMenuItem', restaurant_id=restaurant_id, menu_id=item.id)}}" , method="POST">
+                <p>Name:</p>
+                <input type="text" size="30" name="name" class="form-control" placeholder="{{item.name}}">
+                <input type="submit" value="Edit" class="btn btn-info">
+            </form>
+            <a href="{{url_for('restaurantMenu', restaurant_id= item.restaurant_id)}}">Cancel</a>
+        </div>
+    </div>
+</div>
+{%endblock%}

@@ -23,7 +23,7 @@
             <td class="p-2">{{ i.price }}</td>
             <td class="p-2">{{ i.description }}</td>
             <td class="p-1">
-                <a href='{{url_for('editMenuItem', restaurant_id=restaurant.id, menu_id = i.id)}}' class="text-center"><i class="fas fa-edit "></i></a>
+                <a href="{{url_for('editMenuItem', restaurant_id=restaurant.id, menu_id = i.id)}}" class="text-center"><i class="fas fa-edit "></i></a>
             </td>
             <td class='p-1'>
                 <a href = '{{url_for('deleteMenuItem', restaurant_id = restaurant.id, menu_id = i.id ) }}'><i class="fas fa-trash-alt"></i></a>
